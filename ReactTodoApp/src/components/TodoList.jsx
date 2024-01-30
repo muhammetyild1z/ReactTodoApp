@@ -1,29 +1,20 @@
-// components/TodoList.js
-import React from 'react';
-import   Table  from '@mui/material/Table';
+import { HStack, IconButton, Spacer, StackDivider, VStack, baseTheme } from '@chakra-ui/react'
+import React from 'react'
+import { FaTrash } from "react-icons/fa"
+function TodoList() {
+    return (
+        <>
+            <VStack divider={<StackDivider />} borderWidth='2px' borderColor='gray.100' borderRadius='lg' padding='5' marginTop='5' w='100%'
+                maxW={{ base: '90vw', sm: '90vw', lg: '50vw', xl: '40vw' }} alignItems={'stretch'}>
 
+                <HStack>
+                    <text>This is a task</text>
+                    <Spacer />
+                    <IconButton icon={<FaTrash />}  isRound='true' />
+                </HStack>
+            </VStack>
+        </>
+    );
+}
 
-
-const TodoList = ({ todos, onDeleteTodo, onUpdateTodo, onSortTodos }) => {
-  // Todo listesi ve işlemleri
-  return (
-    <div>
-      <h2>Todo List</h2>
-      {/* Todo listesi */}
-      <Table>
-        <tbody>
-          {todos.map(todo => (
-            <TodoItem
-              key={todo.id}
-              todo={todo}
-              onDelete={onDeleteTodo}
-              onUpdate={onUpdateTodo}
-            />
-          ))}
-        </tbody>
-      </Table>
-    </div>
-  );
-};
-
-export default TodoList;
+export default TodoList
